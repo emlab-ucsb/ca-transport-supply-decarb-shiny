@@ -24,7 +24,11 @@ ui <- ui <- navbarPage(
                            choices = c('Idle', 'Active','Abandoned'),
                            selected = c('Active'),
                            options = pickerOptions(actionsBox = TRUE),
-                           multiple = TRUE)
+                           multiple = TRUE),
+               
+               # slider input for distance from well (1,000 ft; 2,500 ft; 3,200 ft; 1 mile)
+               sliderInput(inputId = 'distance', label = 'Select distance (feet)',
+                           value = 2500, max = 5280, min = 1000)
                           
              ),
              # mainPanel
