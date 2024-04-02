@@ -1,7 +1,7 @@
 # user interface -----
 ui <- ui <- navbarPage(
   
-  title = " Data Explorer",
+  title = "Impact of SB 1137",
   
   # (Page 1) intro tabPanel ----
   tabPanel(title = "About this App",
@@ -13,7 +13,25 @@ ui <- ui <- navbarPage(
   # (Page 2) data viz tabPanel ----
   tabPanel(title =  "Explore the Data",
            
-           "inputs and outputs will live here" # REPLACE THIS WITH CONTENT
+           # sidebar Layout
+           sidebarLayout(
+             
+             # sidebar panel
+             sidebarPanel(
+               
+               # well type input
+               pickerInput(inputId = 'well_type_input', label = 'Select well type(s):',
+                           choices = c('Idle', 'Active','Abandoned'),
+                           selected = c('Active'),
+                           options = pickerOptions(actionsBox = TRUE),
+                           multiple = TRUE)
+                          
+             ),
+             # mainPanel
+             mainPanel(
+               plotOutput(outputId = 'map')
+             )
+           )
            
   ) # END (Page 2) data viz tabPanel
   
