@@ -25,6 +25,20 @@ ui <- ui <- navbarPage(
   ),
   # END (Page 1) intro tabPanel
   
+  # BEGIN Second Tab and EJ background information 
+  tabPanel(title = 'Why is this Important?',
+          
+            fluidRow(
+             column(1),
+             column(10,
+                    tags$h1('Pollution Burden and a Rapidly Warming Climate'),
+                    tags$br(),
+                    tags$h4('What is pollution burden?')
+          
+                    
+                    
+                    
+                     ))),
   # (Page 2) data viz tabPanel ----
   tabPanel(title =  "Explore the Data",
            
@@ -53,5 +67,5 @@ ui <- ui <- navbarPage(
            )
            
   ) # END (Page 2) data viz tabPanel
-  
+  # another page talking about equity, and the second tab/data viz to be included and keeping it consistent with what we've talked about 
 ) # END navbarPage
