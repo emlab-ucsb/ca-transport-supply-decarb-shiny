@@ -50,3 +50,5 @@ rsconnect/
 
 # proprietary data
 freshcair-two-file-app/data/proprietary-data/
+
+shinydashboard/data/proprietary/
