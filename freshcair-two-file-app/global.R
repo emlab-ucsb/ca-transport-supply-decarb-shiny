@@ -5,7 +5,8 @@ library(tidyverse)
 library(showtext)
 library(sysfonts)
 library(ggplot2)
-
+library(shiny)
+library(shinydashboard)
 # GGPLOT THEME -----------------
 
 font_add_google(name = 'Nunito', family = 'nunito')
