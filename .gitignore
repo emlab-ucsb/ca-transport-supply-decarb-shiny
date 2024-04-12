@@ -47,3 +47,6 @@ po/*~
 
 # RStudio Connect folder
 rsconnect/
+
+# proprietary data
+freshcair-two-file-app/data/proprietary-data/
