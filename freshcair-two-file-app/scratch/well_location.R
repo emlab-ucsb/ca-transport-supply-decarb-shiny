@@ -93,10 +93,10 @@ wells_loc_map <-
     col.regions = well_colors["Unknown"],
     pointShape = 21,
     pointSize = 0.03,
-    pointFill = "black"
-  ) +
+    pointFill = "black")
+   +
   mapview(
-    abandoned_wells,
+    canceled_wells,
     zcol = "WellStatus",
     crs = ca_crs,
     layer.name = "Abandoned Wells",
