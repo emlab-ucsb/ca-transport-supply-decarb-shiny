@@ -63,7 +63,8 @@ body <- dashboardBody(
               ,
               pickerInput(inputId = 'well_input',
                           choices = c('Active', 'Plugged','Unknown','Canceled'),
-                          multiple = TRUE)))
+                          multiple = TRUE)),
+              plotOutput(outputId = 'wellmap'))
 
             
             

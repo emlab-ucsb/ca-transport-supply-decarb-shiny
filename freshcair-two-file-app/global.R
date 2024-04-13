@@ -7,6 +7,7 @@ library(sysfonts)
 library(ggplot2)
 library(shiny)
 library(shinydashboard)
+library(mapview)
 # GGPLOT THEME -----------------
 
 font_add_google(name = 'Nunito', family = 'nunito')
