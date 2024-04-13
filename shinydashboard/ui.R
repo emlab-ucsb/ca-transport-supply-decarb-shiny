@@ -1,8 +1,8 @@
 # -------------- dashboard header
 header <- dashboardHeader(
   
-  title = 'Impacts of Oil Wells in California',
-  titleWidth = 400
+  title = 'Impacts of Oil Wells in \nCalifornia',
+  titleWidth = 300
 ) # END dashboardHeader
 
 
@@ -53,18 +53,18 @@ body <- dashboardBody(
                        
                    )
             )
-    ) # end second
-    # tabItem(tabName = 'oil well explorer',
-    #         
-    #         fluidRow(
-    #           
-    #           box( width = 4,
-    #                title = tags$strong('Select well type:')
-    #           ),
-    #           pickerInput(inputId = 'well_input', label = 'Well Type', 
-    #                       choices = c('Active', 'Plugged'),
-    #                       multiple = TRUE))
-    #         
+    ), # end second
+    tabItem(tabName = 'explorer',
+
+            fluidRow(
+
+              box( width = 4,
+                   title = tags$strong('Select well type:')
+              ,
+              pickerInput(inputId = 'well_input',
+                          choices = c('Active', 'Plugged','Unknown','Canceled'),
+                          multiple = TRUE)))
+
             
             
             
@@ -85,7 +85,7 @@ body <- dashboardBody(
     
     
     
-  )
+  )) # end dashboard body 
   
   
   # ................. combining all in dashboardPage

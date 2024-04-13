@@ -46,6 +46,7 @@ wells <- wells %>%
     TRUE ~ WellStatus
   )) 
 
+write.csv(wells, 'well_info_ca.csv')
 # Separating well status into separate dfs
 active_wells <- wells %>% filter(WellStatus == "Active")
 canceled_wells <- wells %>% filter(WellStatus == "Canceled")
