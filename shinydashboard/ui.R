@@ -1,4 +1,6 @@
 # -------------- dashboard header
+
+
 header <- dashboardHeader(
   
   title = 'Impacts of Oil Wells in \nCalifornia',
@@ -64,7 +66,7 @@ body <- dashboardBody(
               pickerInput(inputId = 'well_input',
                           choices = c('Active', 'Plugged','Unknown','Canceled'),
                           multiple = TRUE)),
-              plotOutput(outputId = 'wellmap'))
+              )
 
             
             
