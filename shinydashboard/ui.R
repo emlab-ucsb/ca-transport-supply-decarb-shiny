@@ -37,14 +37,16 @@ body <- dashboardBody(
   tabItems(
     
     # welcome tabItem ---
-    tabItem(tabName = 'welcome'
+    tabItem(tabName = 'welcome',
+            
+            h1("Welcome to the Oil Well Impacts Dashboard"),
             
             
             
             
             
             
-    ), # END first tab item
+     # END first tab item
     
     # BEGIN second
     tabItem(tabName = 'about',
@@ -59,18 +61,28 @@ body <- dashboardBody(
     tabItem(tabName = 'explorer',
 
             fluidRow(
-
-              box( width = 4,
-                   title = tags$strong('Select well type:')
-              ,
-              pickerInput(inputId = 'well_input',
-                          choices = c('Active', 'Plugged','Unknown','Canceled'),
-                          multiple = TRUE)),
+              column(
+                width = 4,
+                pickerInput(
+                  inputId = "well_types",
+                  label = "Select Well Types:",
+                  choices = c("Active", "Plugged", "Unknown", "Idle"),
+                  selected = c("Active", "Plugged", "Unknown", "Idle"),
+                  multiple = TRUE
+                  
+                )
+              ),
+              
+              # leaflet output 
+              column(
+                width = 8,
+                box(
+                  leafletOutput(outputId = 'well_map_output')
+                )
               )
-
-            
-            
-            
+            )
+    )
+          
             
     ) #end tab items
     

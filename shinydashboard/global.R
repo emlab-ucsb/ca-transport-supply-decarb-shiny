@@ -7,7 +7,6 @@ library(sysfonts)
 library(ggplot2)
 library(shiny)
 library(shinydashboard)
-library(mapview)
 library(leaflet)
 # GGPLOT THEME -----------------
 
