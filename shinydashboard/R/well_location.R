@@ -5,8 +5,16 @@ library(tidycensus)
 library(tidyverse)
 library(here)
 library(leaflet)
+library(tmap)
+  
+wells_palette <- c("Active" = "#0747f7",
+                   "Plugged" = 'yellow',
+                   'Unknown' = 'grey',
+                   'Idle' = "#f7cf07",
+                   'Canceled' = 'red')
 
-  ca_crs <- 4326
+
+ca_crs <- 4326
   well_colors <- c(
     "Active" = "#0747f7",
     "Plugged" = "yellow",
@@ -28,7 +36,7 @@ library(leaflet)
     unique() %>%
     mutate(WellStatus = case_when(
       WellStatus %in% c("Active", "New") ~ "Active",
-      WellStatus %in% c("PluggedOnly") ~ "Plugged",
+      WellStatus %in% c("PluggedOnly","Plugged") ~ "Plugged",
       WellStatus %in% c("Abeyance") ~ "Idle",
       TRUE ~ WellStatus
     ))
@@ -36,4 +44,5 @@ library(leaflet)
 data_coordinates <- st_coordinates(wells)
 
 wells$longitude <- data_coordinates[,1]
+
 wells$latitude <- data_coordinates[,2]

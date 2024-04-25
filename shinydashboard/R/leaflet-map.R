@@ -1,30 +1,12 @@
 leaflet_map <- function(input){
 
 # filtering by well type
-  active_data <- reactive({
-    wells %>% 
-      filter(WellStatus == 'Active')
-  })
+
   
-  canceled_data <- reactive({
+  wells_picker <- reactive({
     wells %>% 
-      filter(WellStatus == 'Canceled')
-  })
-  
-  idle_data <- reactive({
-    wells %>% 
-      filter(WellStatus == c('Idle','Abeyance'))
-  })
-  
-  plugged_data <- reactive({
-    wells %>% 
-      filter(WellStatus == c('Plugged',"PluggedOnly"))
-  })
-  
-  unknown_data <- reactive({
-    wells %>% 
-      filter(WellStatus == c('Unknown'))
-  })
+      filter(WellStatus %in% input$well_types)
+  }) 
   
   
   renderLeaflet({
@@ -35,50 +17,26 @@ leaflet_map <- function(input){
       
       # adding tiles 
       addProviderTiles(providers$Esri.WorldTerrain, group = 'ESRI Terrain',
-                       options = providerTileOptions(maxZoom = 100)) %>% 
-      
-      # adding mini map 
-      addMiniMap(toggleDisplay = TRUE) %>% 
-      
-      # setting view over california 
-      setView(lat = 37.568784,lng =  -120.464724, zoom = 5) %>% 
-      
-      addMarkers(data = active_data(),
-                 lng = ~jitter(lng, factor = 0.01), lat = ~jitter(lat, factor = 0.01)) %>% 
-      
-      addMarkers(data = canceled_data(),
-                 lng = ~jitter(lng, factor = 0.01), lat = ~jitter(lat, factor = 0.01)) %>% 
-      
-      addMarkers(data = idle_data(),
-                 lng = ~jitter(lng, factor = 0.01), lat = ~jitter(lat, factor = 0.01)) %>% 
-     
-       addMarkers(data = plugged_data(),
-                 lng = ~jitter(lng, factor = 0.01), lat = ~jitter(lat, factor = 0.01)) %>% 
-      
-      addMarkers(data = unknown_data(),
-                 lng = ~jitter(lng, factor = 0.01), lat = ~jitter(lat, factor = 0.01)) %>% 
-      
-      addLegend(colors = c("#0b3142",
-                           "#FFE900",
-                           '#5B2333',
-                           "#EF233C",
-                           "#103900"),
-                labels = c("Active Wells",
-                           "Canceled Wells",
-                           "Idle Wells",
-                           "Plugged Wells",
-                           "Unknown Wells"),
-                position = 'bottomleft') 
+                  options = providerTileOptions(maxZoom = 100)) %>% 
+      # 
+      # # adding mini map
+       addMiniMap(toggleDisplay = TRUE) %>%
+      # 
+      # # setting view over california
+       setView(lat = 37.568784,lng =  -120.464724, zoom = 5) %>%
+      # 
+      addCircleMarkers(data = wells_picker(),
+                       lng = ~longitude, lat = ~latitude,
+                       color = ~pal(wells_palette))
+
+
     
-    
-    
-    
-    
-  }) # END render Leaflet 
+  }) # END render Leaflet
   
-  
+
     
+
   
-  
-  
-} # END leaflet function
+ # END leaflet function
+}
+
