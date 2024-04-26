@@ -26,8 +26,7 @@ leaflet_map <- function(input){
        setView(lat = 37.568784,lng =  -120.464724, zoom = 5) %>%
       # 
       addCircleMarkers(data = wells_picker(),
-                       lng = ~longitude, lat = ~latitude,
-                       color = ~pal(wells_palette))
+                       lng = ~longitude, lat = ~latitude)
 
 
     

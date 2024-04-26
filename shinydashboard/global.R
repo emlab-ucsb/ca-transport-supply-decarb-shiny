@@ -10,6 +10,7 @@ library(shinydashboard)
 library(leaflet)
 library(shinycssloaders)
 library(sf)
+library(geoloc)
 # GGPLOT THEME -----------------
 
 font_add_google(name = 'Nunito', family = 'nunito')
