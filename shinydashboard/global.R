@@ -12,6 +12,9 @@ library(shinycssloaders)
 library(sf)
 library(tigris)
 library(dplyr)
+library(htmltools)
+library(leafpop)
+library(glue)
 #library(geoloc)
 # GGPLOT THEME -----------------
 
@@ -56,6 +59,13 @@ summary_county_stats <- no_setback_county_results %>%
             dac = mean(dac_share),
             pop = mean(pop)) 
 
+
+ca_counties <- counties(state = "CA", cb = TRUE, resolution = "500k") %>% 
+  st_transform(ca_crs) %>%
+  rename(CountyName = NAME) %>%
+  select(-STATEFP, -COUNTYFP, -COUNTYNS, -AFFGEOID, -GEOID, -NAMELSAD, -STUSPS, -STATE_NAME, -LSAD, -ALAND, -AWATER) %>% 
+  arrange(CountyName)
+
 geometry <- ca_counties %>% 
   arrange(CountyName)
 
@@ -67,11 +77,6 @@ summary_county_sf <- st_as_sf(summary_county_stats) %>%
 
 # joining the summary statistics with the county data
 
- ca_counties <- counties(state = "CA", cb = TRUE, resolution = "500k") %>% 
-   st_transform(ca_crs) %>%
-   rename(CountyName = NAME) %>%
-   select(-STATEFP, -COUNTYFP, -COUNTYNS, -AFFGEOID, -GEOID, -NAMELSAD, -STUSPS, -STATE_NAME, -LSAD, -ALAND, -AWATER) %>% 
-   arrange(CountyName)
 
 
 ca_counties$pm25 <- summary_county_sf$mean_pm
@@ -89,3 +94,15 @@ buffer_3200 <- sf::st_read("/capstone/freshcair/meds-freshcair-capstone/data/pro
 
 buffer_3200 <- buffer_3200 %>% 
   st_transform(ca_crs)
+
+
+
+
+# labels for popup message:
+# label_text <- glue(
+#   "<strong>Average yearly values from 2019-2024</strong><br>",
+#   "County:",ca_counties$CountyName,"<br>",
+#   "PM2.5: ", round(ca_counties$pm25, 4), " μg/m³", "<br>",
+#   "Percent of Disadvantaged Census Tracts: ", round(ca_counties$dac, 2),"%", "<br>",
+#   "Population: ", formatC(round(ca_counties$pop, 0), big.mark = ",", format = "d")) %>% 
+#   htmltools::HTML()

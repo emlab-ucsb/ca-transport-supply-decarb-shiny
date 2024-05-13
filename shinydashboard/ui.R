@@ -1,6 +1,6 @@
 # -------------- dashboard header
 header <- dashboardHeader(title = 'Impacts of Oil Wells in \nCalifornia',
-                          titleWidth = 300) # END dashboardHeader
+                          titleWidth = 450) # END dashboardHeader
 
 # -------------- dashboard sidebar
 sidebar <- dashboardSidebar(# sideBar Menu----
@@ -28,7 +28,8 @@ sidebar <- dashboardSidebar(# sideBar Menu----
                             ))
 
 # ................. dashboardBody
-body <- dashboardBody(# tab items ------------
+body <- dashboardBody(
+                      # tab items ------------
                       tabItems(
                         # welcome tabItem ---
                         tabItem(tabName = 'welcome',
@@ -58,7 +59,8 @@ body <- dashboardBody(# tab items ------------
                                 fluidRow(
                                   column(
                                     width = 4,
-                                    pickerInput(
+                                    box(width = NULL,
+                                      pickerInput(
                                       inputId = "county_name",
                                       label = "\nFind county in California: ",
                                       choices = unique(wells$CountyName),
@@ -70,16 +72,22 @@ body <- dashboardBody(# tab items ------------
                                       choices = unique(wells$WellStatus),
                                       selected = c("Active"),
                                       multiple = TRUE),
-                                    box(width = 10,
-                                        "Definition of active oil well vs. non active and subcategories\n and public health exposure levels for pm25")),
+                                    
+                                    # box(width = 10,
+                                    
+                                        "Definition of active oil well vs. non active and subcategories\n and public health exposure levels for pm25"
+                                    )),
                                   # leaflet output
                                   column(
                                     width = 8,
                                     fluidPage(
                                       leafletOutput(outputId = 'map', height = "100vh") %>%
                                         withSpinner(type = 1, color = "#4287f5")
-                                    ))
-                                ))))
+                                    ) # ---END fluidPage
+                                  ) #-------END Column
+                                ))
+                                
+                        ))
 
 
 # ................. combining all in dashboardPage
