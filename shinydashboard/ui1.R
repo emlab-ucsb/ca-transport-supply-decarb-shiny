@@ -62,28 +62,25 @@ body <- dashboardBody(# tab items ------------
                                       inputId = "county_name",
                                       label = "\nFind county in California: ",
                                       choices = unique(wells$CountyName),
-                                      selected = c("Kern"),
+                                      selected = NULL,
                                       multiple = TRUE),
                                     pickerInput(
                                       inputId = "well_types",
                                       label = "Select Well Types:",
                                       choices = unique(wells$WellStatus),
                                       selected = c("Active"),
-                                      multiple = TRUE),
-                                    box(width = 10,
-                                        "Definition of active oil well vs. non active and subcategories\n and public health exposure levels for pm25")),
+                                      multiple = TRUE)),
                                   # leaflet output
                                   column(
-                                    width = 8,
+                                    width = 12,
                                     fluidPage(
-                                      leafletOutput(outputId = 'map', height = "100vh") %>%
+                                      leafletOutput(outputId = 'map') %>%
                                         withSpinner(type = 1, color = "#4287f5")
                                     ))
                                 ))))
 
-
 # ................. combining all in dashboardPage
-ui <- dashboardPage(title = 'Oil Wells in California', header, sidebar, body, skin = 'green')
+ui <- dashboardPage(title = 'Oil Wells in California', header, sidebar, body)
 
 
 # make circle markers smaller
