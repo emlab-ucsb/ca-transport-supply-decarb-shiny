@@ -15,7 +15,7 @@ leaflet_map <- function(input){
       addPolygons(data = ca_counties, color = 'black',weight = 1,
                   popup = ~ paste0(
                     "<strong>Average yearly values from 2019-2024</strong><br>",
-                    "County:",CountyName,"<br>",
+                    "County: ",CountyName,"<br>",
                     "PM2.5: ", round(pm25, 4), " μg/m³", "<br>",
                     "Percent of Disadvantaged Census Tracts: ", round(dac, 2),"%", "<br>",
                     "Population: ", formatC(round(pop, 0), big.mark = ",", format = "d") # Add commas to population
