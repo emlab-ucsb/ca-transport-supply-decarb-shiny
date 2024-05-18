@@ -21,10 +21,16 @@ sidebar <- dashboardSidebar(# sideBar Menu----
                                 icon = icon('circle-question')
                               ),
                               menuItem(
+                                text = 'Statewide Impacts of SB 1137',
+                                tabName = 'impact',
+                                icon = icon('magnifying-glass-chart')
+                              ),
+                              menuItem(
                                 text = ' Oil Well Explorer',
                                 tabName = 'explorer',
                                 icon = icon('location-crosshairs')
                               )
+                              
                             ))
 
 # ................. dashboardBody
@@ -37,7 +43,7 @@ body <- dashboardBody(
                                 h4("Senate Bill 1137 is an important piece of legislation that would prevent new oil 
                                    and gas wells from being constructed within 3,200 feet of hospitals, schools, dwellings, and 
                                    other kinds of sensitive locations in California. On this page, you can select a county of interest to get a sense of where the setback buffer would lie in your community, 
-                                   as well as seeing where active wells may be located around you."),
+                                   as well as seeing where active wells may be located around you.")
                                 ),# END first tab item
                         
                         # About tabItem
@@ -65,7 +71,7 @@ body <- dashboardBody(
                                       label = tags$div(style = 'font-size: 20px;',
                                                        "\nFind county in California: "),
                                       choices = unique(wells$CountyName),
-                                       selected = unique(wells$CountyName),
+                                       selected = c("Kern")),
                                       multiple = FALSE),
                                     prettyCheckboxGroup(
                                       inputId = "well_types",
@@ -82,18 +88,30 @@ body <- dashboardBody(
                                         defined as a community with an annual median household income less than 80% of the state's annual median household income. <br><br>In 2012,  the US Environmental Protection
                                         Agency revised the nation's air quality standardss in which the annual PM 2.5 exposure is <strong> 12 micrograms per cubic meter (µg/m3)</strong>. </div>
                                         "
-                                    ))),
+                                    )),
                                   # leaflet output
                                   column(
                                     width = 8,
                                     fluidPage(
                                       leafletOutput(outputId = 'map', height = "100vh") %>%
                                         withSpinner(type = 1, color = "#4287f5")
-                                    ) # ---END fluidPage
+                                    )) # ---END fluidPage
                                   ) #-------END Column
-                                ))
+                                ),
+                        tabItem(tabName = 'impact',
+                                fluidPage(
+                                  
+                                  
+                                    
+                                )# --- END fluidPage
                                 
-                        ))
+                                
+                                
+                                ) # ---- END impact tab
+                        
+                        )
+                                
+                        )
 
 
 # ................. combining all in dashboardPage
