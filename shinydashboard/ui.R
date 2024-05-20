@@ -11,7 +11,7 @@ sidebar <- dashboardSidebar(# sideBar Menu----
                                 icon = icon('star')
                               ),
                               menuItem(
-                                text = 'About this App',
+                                text = ' About this App',
                                 tabName = 'about',
                                 icon = icon('circle-info')
                               ),
@@ -21,7 +21,7 @@ sidebar <- dashboardSidebar(# sideBar Menu----
                                 icon = icon('circle-question')
                               ),
                               menuItem(
-                                text = 'Statewide Impacts of SB 1137',
+                                text = ' Statewide Impacts of SB 1137',
                                 tabName = 'impact',
                                 icon = icon('magnifying-glass-chart')
                               ),
@@ -29,6 +29,11 @@ sidebar <- dashboardSidebar(# sideBar Menu----
                                 text = ' Oil Well Explorer',
                                 tabName = 'explorer',
                                 icon = icon('location-crosshairs')
+                              ),
+                              menuItem(
+                                text = ' Research Methods',
+                                tabName = 'methods',
+                                icon = icon('microscope')
                               )
                               
                             ))
@@ -100,8 +105,25 @@ body <- dashboardBody(
                                 ),
                         tabItem(tabName = 'impact',
                                 fluidPage(
-                                  
-                                  
+                                  fluidRow(
+                                    column(
+                                      width = 12,
+                                      align = 'center',
+                                    
+                                 h3("Results From our Analysis"))), # --- END h3 
+                                 fluidRow(
+                                   column(
+                                     width = 12,
+                                     align = "center",
+                                     img(src = "mortality_plot.png", height = "auto", width = "50%"),
+                                     tags$br(),
+                                     img(src = "pred_actual_new_wells_yoy.png", height = "auto", width = "50%"),
+                                     tags$br(),
+                                     img(src = "compensation_plot.png", height = "auto", width = "50%"),
+                                     tags$br(),
+                                     img(src = "production_plot.png", height = "auto", width = "50%")
+                                   )
+                                 ) # --------END fluidrow
                                     
                                 )# --- END fluidPage
                                 
