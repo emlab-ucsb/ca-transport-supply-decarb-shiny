@@ -6,9 +6,9 @@ header <- dashboardHeader(title = 'Impacts of Oil Wells in \nCalifornia',
 sidebar <- dashboardSidebar(# sideBar Menu----
                             sidebarMenu(
                               menuItem(
-                                text = ' Welcome',
-                                tabName = 'welcome',
-                                icon = icon('star')
+                                text = ' Oil Well Explorer',
+                                tabName = 'explorer',
+                                icon = icon('location-crosshairs')
                               ),
                               menuItem(
                                 text = ' About this App',
@@ -26,11 +26,6 @@ sidebar <- dashboardSidebar(# sideBar Menu----
                                 icon = icon('magnifying-glass-chart')
                               ),
                               menuItem(
-                                text = ' Oil Well Explorer',
-                                tabName = 'explorer',
-                                icon = icon('location-crosshairs')
-                              ),
-                              menuItem(
                                 text = ' Research Methods',
                                 tabName = 'methods',
                                 icon = icon('microscope')
@@ -43,13 +38,13 @@ body <- dashboardBody(
                       # tab items ------------
                       tabItems(
                         # welcome tabItem ---
-                        tabItem(tabName = 'welcome',
-                                h1("Welcome to the Oil Well Impacts Dashboard", style = 'text-align: center;'),
-                                h4("Senate Bill 1137 is an important piece of legislation that would prevent new oil 
-                                   and gas wells from being constructed within 3,200 feet of hospitals, schools, dwellings, and 
-                                   other kinds of sensitive locations in California. On this page, you can select a county of interest to get a sense of where the setback buffer would lie in your community, 
-                                   as well as seeing where active wells may be located around you.")
-                                ),# END first tab item
+                        # tabItem(tabName = 'welcome',
+                        #         h1("Welcome to the Oil Well Impacts Dashboard", style = 'text-align: center;'),
+                        #         h4("Senate Bill 1137 is an important piece of legislation that would prevent new oil 
+                        #            and gas wells from being constructed within 3,200 feet of hospitals, schools, dwellings, and 
+                        #            other kinds of sensitive locations in California. On this page, you can select a county of interest to get a sense of where the setback buffer would lie in your community, 
+                        #            as well as seeing where active wells may be located around you.")
+                        #         ),# END first tab item
                         
                         # About tabItem
                         tabItem(tabName = 'about', 
@@ -68,6 +63,11 @@ body <- dashboardBody(
                         
                         tabItem(tabName = 'explorer',
                                 fluidRow(
+                                        h1("Welcome to the Oil Well Impacts Dashboard", style = 'text-align: center;'),
+                                           h4("Senate Bill 1137 is an important piece of legislation that would prevent new oil 
+                                              and gas wells from being constructed within 3,200 feet of hospitals, schools, dwellings, and 
+                                              other kinds of sensitive locations in California. On this page, you can select a county of interest to get a sense of where the setback buffer would lie in your community, 
+                                              as well as seeing where active wells may be located around you.", style = 'text- align: justify; line-height:1.5;'),
                                   column(
                                     width = 4,
                                     box(width = NULL,
@@ -77,13 +77,13 @@ body <- dashboardBody(
                                                        "\nFind county in California: "),
                                       choices = unique(wells$CountyName),
                                        selected = c("Kern")),
-                                      multiple = FALSE),
+                                      multiple = FALSE,
                                     prettyCheckboxGroup(
                                       inputId = "well_types",
                                       label = tags$div(style = 'font-size: 20px;',
                                                        "Select well type:"),
                                       choices = unique(wells$WellStatus),
-                                      selected = c("Active")),
+                                      selected = c("Active"))),
                                     
                                     # box(width = 10,
                                     

@@ -11,9 +11,10 @@ leaflet_map <- function(input){
     basemap <- leaflet() %>%
       addProviderTiles(providers$Esri.WorldStreetMap) %>%
       setView(lat = 37.568784,lng =  -120.464724, zoom = 7) %>%
-      addCircleMarkers(data = county_picker(), radius = 0.75,    
+      addCircleMarkers(data = county_picker(), radius = 0.55,    
                        color = ~pal(WellStatus),
-                       fillOpacity = 0.75) %>%
+                       fillOpacity = 0.7,
+                       clusterOptions = markerClusterOptions()) %>%
       addPolygons(data = ca_counties, color = 'black',weight = 1,
                   popup = ~ paste0(
                     "<strong>Average yearly values from 2019-2024</strong><br>",
