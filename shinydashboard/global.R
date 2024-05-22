@@ -15,6 +15,7 @@ library(dplyr)
 library(htmltools)
 library(leafpop)
 library(glue)
+library(bslib)
 #library(geoloc)
 # GGPLOT THEME -----------------
 
