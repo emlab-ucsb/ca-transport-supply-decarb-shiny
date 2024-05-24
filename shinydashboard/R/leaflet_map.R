@@ -10,7 +10,7 @@ leaflet_map <- function(input){
     # initiate map
     basemap <- leaflet() %>%
       addProviderTiles(providers$Esri.WorldStreetMap) %>%
-      setView(lat = 37.568784,lng =  -120.464724, zoom = 7) %>%
+      setView(lat = 35.568784,lng =  -119.464724, zoom = 7) %>%
       addCircleMarkers(data = county_picker(), radius = 0.55,    
                        color = ~pal(WellStatus),
                        fillOpacity = 0.7,
