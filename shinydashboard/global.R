@@ -50,6 +50,11 @@ wells$latitude <- data_coordinates[,2]
 
 subset_county_hs_results <- read_csv("/capstone/freshcair/meds-freshcair-capstone/data/processed/extraction_2024-05-02/health-county-results/subset_county_hs_results.csv")
 
+
+county_health_results <- read_csv(here::here('shinydashboard/data/county_health_results.csv')) %>% 
+  mutate(perc_diff = ((total_pm25_change_pct - bau_pm25_change_pct )/ bau_pm25_change_pct) * 100)
+
+
 no_setback_county_results <- subset_county_hs_results %>% 
   filter(scen_id == "reference case-no_setback-no quota-price floor-no ccs-low innovation-no tax-1") %>% 
   filter(year < 2024)
@@ -87,7 +92,7 @@ ca_counties$dac <- summary_county_sf$dac
 
 ca_counties$pop <- summary_county_sf$pop
 
-
+ca_counties$diffpm <- county_health_results$perc_diff
 ca_counties <- ca_counties %>% 
   mutate(dac = dac * 100)
 # reading in well buffer shapefile

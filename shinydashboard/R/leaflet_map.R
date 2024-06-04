@@ -17,9 +17,9 @@ leaflet_map <- function(input){
                        clusterOptions = markerClusterOptions()) %>%
       addPolygons(data = ca_counties, color = 'black',weight = 1,
                   popup = ~ paste0(
-                    "<strong>Average yearly values from 2019-2024</strong><br>",
+                    "<strong>County Facts </strong><br>",
                     "County: ",CountyName,"<br>",
-                    "PM2.5: ", round(pm25, 4), " μg/m³", "<br>",
+                    "Percent Reduction in PM 2.5 (μg/m³) \nwith SB 1137: ", round(diffpm, 2),"%", "<br>",
                     "Percent of Disadvantaged Census Tracts: ", round(dac, 2),"%", "<br>",
                     "Population: ", formatC(round(pop, 0), big.mark = ",", format = "d") # Add commas to population
                   )) %>%
@@ -31,7 +31,7 @@ leaflet_map <- function(input){
       "<div style='background-color: white; padding: 10px; border-radius: 5px;'>
           <div style='display: flex; align-items: center; margin-bottom: 5px;'>
             <div style='width: 20px; height: 20px; background-color: cornflowerblue; margin-right: 5px;'></div>
-            <span>3200 foot buffer surrounding sensitive areas</span>
+            <span>3200 ft buffer surrounding sensitive areas</span>
           </div>
         </div>"
     )
