@@ -202,7 +202,20 @@ body <- dashboardBody(
                                      
                                      fluidRow(
                                        class = 'custom-fluid-row',
-                                       column(6, align = "center", img(src = "dac-emp.png", height = "auto", width = "80%"))),
+                                       column(6, align = "center", img(src = "dac-emp.png", height = "auto", width = "80%")),
+                                       column(6, align = 'left',
+                                              HTML("
+                                    <div style='border: 1px solid #ddd; padding: 10px;'>
+                     <p>This plot shows the share of lost worker compensation experienced by disadvantaged communities (DACs) 
+                     under different policy scenarios aimed at achieving 2045 greenhouse gas emission reduction targets.
+                     The y-axis represents the share of lost worker compensation for DACs, and the x-axis indicates the stringency 
+                     of the 2045 GHG emissions targets. DACs experience a consistently lower share of lost worker compensation under
+                     setback policies compared to excise and carbon taxes. Notably, the third gray point from the left represents the
+                     new 3,200 foot setback distance, where the share of lost worker compensation for DACs is lower than under other policies. 
+                     DACs benefit from a lower share of economic impacts under setback policies.</p>
+
+                 </div>
+"))),
                                     fluidRow(
                                       class = 'custom-fluid-row',
                                       column(6, align = "center", img(src = "production_plot.png", height = "auto", width = "80%"))
