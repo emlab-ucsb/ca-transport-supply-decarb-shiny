@@ -48,7 +48,7 @@ wells$longitude <- data_coordinates[,1]
 wells$latitude <- data_coordinates[,2]
 
 
-subset_county_hs_results <- read_csv("/capstone/freshcair/meds-freshcair-capstone/data/processed/extraction_2024-05-02/health-county-results/subset_county_hs_results.csv")
+subset_county_hs_results <- read_csv("shinydashboard/data/subset_county_hs_results.csv")
 
 
 county_health_results <- read_csv(here::here('shinydashboard/data/county_health_results.csv')) %>% 
@@ -97,19 +97,8 @@ ca_counties <- ca_counties %>%
   mutate(dac = dac * 100)
 # reading in well buffer shapefile
 
-buffer_3200 <- sf::st_read("/capstone/freshcair/meds-freshcair-capstone/data/proprietery-data/setback-buffers/buffer_3200ft.shp")
+buffer_3200 <- sf::st_read("shinydashboard/data/buffer_3200ft.shp")
 
 buffer_3200 <- buffer_3200 %>% 
   st_transform(ca_crs)
 
-
-
-
-# labels for popup message:
-# label_text <- glue(
-#   "<strong>Average yearly values from 2019-2024</strong><br>",
-#   "County:",ca_counties$CountyName,"<br>",
-#   "PM2.5: ", round(ca_counties$pm25, 4), " μg/m³", "<br>",
-#   "Percent of Disadvantaged Census Tracts: ", round(ca_counties$dac, 2),"%", "<br>",
-#   "Population: ", formatC(round(ca_counties$pop, 0), big.mark = ",", format = "d")) %>% 
-#   htmltools::HTML()
