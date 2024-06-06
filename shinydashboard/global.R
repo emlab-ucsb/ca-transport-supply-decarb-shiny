@@ -17,6 +17,7 @@ library(leafpop)
 library(glue)
 library(fresh)
 library(bslib)
+library(here)
 #library(geoloc)
 # GGPLOT THEME -----------------
 
@@ -48,7 +49,7 @@ wells$longitude <- data_coordinates[,1]
 wells$latitude <- data_coordinates[,2]
 
 
-subset_county_hs_results <- read_csv("shinydashboard/data/subset_county_hs_results.csv")
+subset_county_hs_results <- read_csv("/capstone/freshcair/freshcair-shiny/shinydashboard/data/subset_county_hs_results.csv")
 
 
 county_health_results <- read_csv(here::here('shinydashboard/data/county_health_results.csv')) %>% 
@@ -97,7 +98,7 @@ ca_counties <- ca_counties %>%
   mutate(dac = dac * 100)
 # reading in well buffer shapefile
 
-buffer_3200 <- sf::st_read("shinydashboard/data/buffer_3200ft.shp")
+buffer_3200 <- sf::st_read("/capstone/freshcair/meds-freshcair-capstone/data/proprietery-data/setback-buffers/buffer_3200ft.shp")
 
 buffer_3200 <- buffer_3200 %>% 
   st_transform(ca_crs)

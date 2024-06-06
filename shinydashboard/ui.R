@@ -144,18 +144,101 @@ body <- dashboardBody(
                                       width = 12,
                                       align = 'center',
                                       
-                                      h3("Research Methods and Findings "),
+                                      h2("Research Methods and Findings "),
+                                      h3("How the Setback Impacts the Number of New Wells"),
+                                      fluidRow(column(
+                                        12,
+                                        align = "left",
+                                        HTML(
+                                          "
+                 <div style='border: 1px solid #ddd; padding: 10px;'>
+                   <p>The introduction of setbacks, specifically the 3,200-foot setback mandated by Senate Bill 1137, significantly influences the number of new oil wells predicted in California. Setbacks are regulatory distances that prevent the drilling of new oil wells near sensitive areas such as schools, hospitals, and residential communities. This policy aims to reduce the harmful health and environmental effects associated with oil and gas extraction, especially in disadvantaged communities.
+<br><br>    To understand the impact of setbacks on new well predictions, the setback distances were incorporated into predictive models for well entry and exit. The setback effectively reduces the number of viable locations where new wells can be drilled. Consequently, this results in a decline in the number of new wells projected over time. By implementing the setback, the model forecasts fewer new wells because the restricted areas encompass significant portions of potential drilling sites. Note that the model assumes that wells are equally likely to be drilled at any point within an oil field.
+<br><br>    Historical data and spatial analysis were examined to map out the regions affected by the setback distances. The analysis revealed that the 3,200-foot setback covers many areas previously available for drilling. By overlaying this spatial data with historical well locations, the impact of the setback on future drilling activities was simulated. The predictive models, adjusted to account for these new restrictions, consistently showed a decrease in the number of new wells over the forecast period from 2020 to 2045.
+<br><br>    This reduction is particularly pronounced in urban and suburban regions where sensitive receptors are more densely located. The setback policy not only reduces the number of new wells but also has broader implications for environmental justice, as it helps to mitigate the adverse health impacts on communities living near oil extraction sites.
+.</p>
+
+                 </div>
+               "
+                                        )
+                                      )),
+                                      h3("Machine Learning Development"),
+                                      fluidRow(column(
+                                        12,
+                                        align = 'left',
+                                        HTML(
+                                          "
+                      <div style='border: 1px solid #ddd; padding: 10px;'>
+                   <p> Machine learning played a crucial role in enhancing the predictive accuracy of oil well operations and outcomes. Traditional methods, like Poisson regression, were initially used to estimate the number of new and exiting wells. However, 
+                                          these methods have limitations, especially in capturing complex, nonlinear relationships in the data. 
+                                          To overcome these limitations, machine learning models, specifically Random Forest regression,
+                                          were developed to provide more robust predictions. 
+                                          <br><br> <strong> Data Collection and Preparation: </strong> The models were trained on historical data from 1977 to 2019, which included features such as oil prices, capital expenditures (CapEx), operational expenditures (OpEx), depletion rates, and field-specific information. 
+                                          The historical Brent oil prices were adjusted to present dollar terms to ensure consistency in the data. 
+                                          <br><br> <strong> Model Selection: </strong> Random Forest regression was chosen due to its ability to handle complex interactions and nonlinearities in the data. 
+                                          This ensemble learning method aggregates the predictions from multiple decision trees,
+                                          reducing the risk of overfitting and improving generalization.
+                                          <br><br> <strong> Model Training: </strong> The Random Forest model was trained with 500 trees and 4 randomly selected features at each split (mtry = 4).
+                                          The training process involved using the historical data to learn patterns and relationships between 
+                                          the input features and the target variable (number of new wells). The model's performance was evaluated using metrics
+                                          like Root Mean Squared Error (RMSE), which measures the average magnitude of the prediction errors.
+
+</p> </div>"
+                                        )
+                                      ))
+                                      
+                                      
+                                      
+                                      
+                                      
+                                      ,
                                       fluidRow(
-                                        column(6, align = 'center', img(src = 'pred_actual_new_wells_yoy.png', height = 'auto', width = "80%")
+                                        column(12, align = 'center', img(src = 'pred-wells.png', height = 'auto', width = "80%")
                                           
                                         )
-                                      )
+                                      ),
+                                      fluidRow(
+                                        column(12,
+                                               align = 'left',
+                                               HTML(" <div style='border: 1px solid #ddd; padding: 10px;'>
+                                                                <p> 
+                                                               <br> <strong> Comparison with Poisson Models: </strong>The Random Forest model demonstrated superior predictive
+                                                               power compared to the Poisson model. It captured larger shifts and trends in the number of new wells, reflecting the
+                                                               dynamic nature of the oil industry. This was evident in the model's ability to accurately predict new well counts during
+                                                               periods of significant changes in oil prices and operational costs. 
+                                                    <br> <strong> Implementation: </strong> The trained Random Forest model was integrated into the existing workflow to predict the number of
+                                                    new and exiting wells under various scenarios, including the implementation of the 3,200-foot setback. The model provided more nuanced and accurate projections, 
+                                                    offering better insights into the long-term impacts of the setback policy on oil production and associated environmental and economic outcomes. <br><br>
+ </p> </div>"                                                                                                     ))),
+                                      fluidRow(
+                                        column(12, align = 'center', img(src = 'oil-well-comp.png', height = 'auto', width = '80%'))
+                                      ),
+                                      fluidRow(
+                                        column(12,
+                                               align = 'left',
+                                               HTML(" <div style='border: 1px solid #ddd; padding: 10px;'>
+                                                                <p> 
+                                                              	This figure shows the predictions of total new wells by Random Forest and Poisson models compared to the actual historical data from 1977 to 2019. The Random Forest model, which was trained with 500 trees and 4 randomly selected features at each split (mtry = 4), captures larger shifts and trends than the Poisson model, which is more conservative and does not fluctuate as much as the Random Forest. The ensemble nature of the Random Forest model allows it to capture complex nonlinear relationships between the predictor variables and the response, making it a powerful tool for modeling well entries. The Poisson model provides more conservative estimates, reflecting its tendency to predict fewer new wells overall, and often underestimated the peaks seen in the true data. This comparison highlights the strengths 
+                                                              	and limitations of each modeling approach in capturing the dynamics of well entries over time. <br> <br>
+ </p> </div>"                                                                                                     ))),
+                                      fluidRow(
+                                        column(12,
+                                               align = 'center',img(src = 'oil-well-prod.png', height = 'auto',width = '80%'))
+                                      ),
+                                      fluidRow(
+                                        column(12,
+                                               align = 'left',
+                                               HTML(" <div style='border: 1px solid #ddd; padding: 10px;'>
+                                                                <p> 
+                                                              	This plot compares the predictive power of the Poisson and Random Forest models under two policy scenarios: no setback and a 3,200 foot setback on new wells. The production for the Random Forest model is slightly lower after about 2028 because it predicts fewer new wells starting around this time, and also more well exits over the entire forecasted period. This suggests that the Random Forest model may be more sensitive to changes in the input features over time, capturing the combined effect of reduced new well development and increased well abandonment on total production. The Poisson model, on the other hand, shows a more gradual decline in production, likely due to its more conservative estimates of new well entries and exits. The impact of the 3,200 foot setback is more pronounced in the Random Forest model, as the gap between the two scenarios is larger compared to the Poisson model. 
+
+ </p> </div>"                                                                                                     )))
                                     )
                                   )
       
                                 ) # ------ END fluidPage
                                 
-                                ), # -----------END methods tabItem
+                                ), # -----------------------------------END methods tabItem
                         tabItem(
                           tabName = 'impact',
                                 fluidPage(
