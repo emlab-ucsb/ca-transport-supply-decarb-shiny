@@ -96,9 +96,10 @@ ca_counties$pop <- summary_county_sf$pop
 ca_counties$diffpm <- county_health_results$perc_diff
 ca_counties <- ca_counties %>% 
   mutate(dac = dac * 100)
+
 # reading in well buffer shapefile
 
-buffer_3200 <- sf::st_read("/capstone/freshcair/meds-freshcair-capstone/data/proprietery-data/setback-buffers/buffer_3200ft.shp")
+buffer_3200 <- sf::st_read("/capstone/freshcair/freshcair-shiny/shinydashboard/data/datagenerated-buffer_3200ft.shp")
 
 buffer_3200 <- buffer_3200 %>% 
   st_transform(ca_crs)
