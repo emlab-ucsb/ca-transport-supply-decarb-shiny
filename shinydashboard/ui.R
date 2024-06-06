@@ -256,6 +256,12 @@ body <- dashboardBody(
                                     valueBox(paste0("$", 660, ' million'), "Averted mortality cost in million USD", icon = icon("notes-medical"), color = 'maroon'),
                                     valueBox(paste0(200,"\nmillion"), "Reduced production in barrels of oil", icon = icon("oil-well"), color = 'aqua')
                                   ),
+                                  fluidRow(
+                                    column(12, align = 'center',
+                                           HTML("
+      <p style='font-size: 14px;'><em>Please note: these are estimated values for the years 2020 to 2045.</em></p>
+    "))
+                                  ),
                                   
                                   fluidRow(
                                     column(
@@ -301,8 +307,25 @@ body <- dashboardBody(
 "))),
                                     fluidRow(
                                       class = 'custom-fluid-row',
-                                      column(6, align = "center", img(src = "production_plot.png", height = "auto", width = "80%"))
-                                     )
+                                      column(6, align = "center", img(src = "ca-oil-prod.png", height = "auto", width = "80%")),
+                                     
+                                    
+                                      column(6, align = 'left',
+                                             HTML("
+                                      <div style='border: 1px solid #ddd; padding: 10px;'>
+                     <p>The figure illustrates the projected impact of a 3,200 foot setback policy on California’s oil production compared to a business-as-usual (BAU) scenario. 
+                     The setback line demonstrates the policy’s increasing effectiveness over time due to its cumulative effect on reducing the number of new wells drilled each year.
+                     As fewer new wells are added annually under the setback scenario, the overall oil production decreases more significantly with each passing year compared to the BAU scenario.
+                     This compounding effect highlights the long-term benefits of implementing a setback policy, as the reduction in new well drilling will lead to a decrease in oil production over 
+                     the course of the forecasted period of 2020 to 2045. By visualizing these trajectories, policymakers and stakeholders can better understand the potential of setback policies to reduce 
+                     oil production.
+</p>
+
+                 </div>              
+                                                  
+                                                  
+                                                  ")))
+                                    )
                                    )
                                  ) # --------END fluidrow
                                     
@@ -313,7 +336,7 @@ body <- dashboardBody(
                                 ) # ---- END impact tab
                         
                         
-                      ))                       
+                      )                 
                         
 
 
