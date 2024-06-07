@@ -10,7 +10,8 @@ There are four main pages of the interactive dashboard: 'Oil well Explorer','Abo
 
 An overview of each page follows:
 
-*Oil Well Explorer*:
+*Oil Well Explorer*
+
 The Oil Well Explorer contains a brief description of SB 1137, providing hard-hitting information in an interpretable manner. The main component of this page is reactivity. There are two pickerInputs, one for California County and one for Well Type. The 58 California Counties are listed in the first pickerInput, and the Well Types were consolidated into two types: Active and non-Active. After the user picks both inputs, a reactive Leaflet map will appear on the user's right-hand side. It will display all of California, with black borders representing the county lines. This map also includes a cornflower blue layer representing a 3,200 foot buffer around sensitive areas. The Leaflet map used was WorldStreetMap, so that users are able to easily identify areas of interest. 
 The data used for generating the visuals in the dashboard was made by updating the existing workflow by adding the 3,200 foot setback scenario. 
 
