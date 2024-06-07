@@ -68,7 +68,9 @@ This capstone project was completed as a requirement for the Master of Environme
 
 ## Authors
 Mariam Garcia {mkgarcia@ucsb.edu}
+
 Haejin Kim  {haejin_kim@ucsb.edu}
+
 Maxwell Patterson {maxwellpatterson@ucsb.edu}
 
 ## Clients
