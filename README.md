@@ -11,7 +11,7 @@ The data used for generating the visuals in the dashboard was made by updating t
 This is the file structure of the `shinydashboard` content:
 
 
-.
+`.
 ├── data
 │   ├── buffer_3200ft.shp
 │   ├── county_health_results.csv
@@ -51,4 +51,4 @@ This is the file structure of the `shinydashboard` content:
     ├── pred-wells.png
     ├── shinydashboard-fresh-theme.css
     ├── shiny-fresh-theme.css
-    └── styles.css
+    └── styles.css`
