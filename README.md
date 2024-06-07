@@ -19,7 +19,6 @@ This is the file structure of the `shinydashboard` content:
 
 
 ```bash
-.
 ├── data
 │   ├── buffer_3200ft.shp
 │   ├── county_health_results.csv
@@ -37,14 +36,11 @@ This is the file structure of the `shinydashboard` content:
 │   │       ├── Wells_All.shp.xml
 │   │       └── Wells_All.shx
 │   └── subset_county_hs_results.csv
-├── global1.R
 ├── global.R
 ├── R
 │   ├── leaflet_map.R
 │   └── well_location.R
-├── server1.R
 ├── server.R
-├── ui1.R
 ├── ui.R
 └── www
     ├── 2035-logo.png
