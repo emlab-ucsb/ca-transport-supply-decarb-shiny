@@ -63,3 +63,14 @@ This is the file structure of the `shinydashboard` content:
     ├── shiny-fresh-theme.css
     └── styles.css
 ```
+## Disclaimer
+This capstone project was completed as a requirement for the Master of Environmental Data Science program at the Bren School of Environmental Science & Management, University of California, Santa Barbara.
+
+## Authors
+Mariam Garcia {mkgarcia@ucsb.edu}
+Haejin Kim  {haejin_kim@ucsb.edu}
+Maxwell Patterson {maxwellpatterson@ucsb.edu}
+
+## Clients
+Lucas Boyd, Executive Director, The 2035 Initiative {lucasboyd@ucsb.edu}
+Tracey Mangin, Senior Project Scientist, emLab, {tmangin@ucsb.edu}
