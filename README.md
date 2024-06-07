@@ -5,7 +5,7 @@ UCSB Master of Environmental Data Science Project Team Members: Mariam Garcia, H
 This interactive dashboard is submitted in partial satisfaction of the requirements for the degree of Master of Environmental Data Science for the Bren School of Environmental Science & Management.
 
 
-### Contents
+## Contents
 There are four main pages of the interactive dashboard: 'Oil well Explorer','About','Statewide Impacts of SB 1137', and 'Research Methods'.
 
 An overview of each page follows:
