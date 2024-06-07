@@ -10,6 +10,7 @@ The data used for generating the visuals in the dashboard was made by updating t
 
 This is the file structure of the `shinydashboard` content:
 
+
 .
 ├── data
 │   ├── buffer_3200ft.shp
@@ -18,7 +19,7 @@ This is the file structure of the `shinydashboard` content:
 │   ├── datagenerated-buffer_3200ft.prj
 │   ├── datagenerated-buffer_3200ft.shp
 │   ├── datagenerated-buffer_3200ft.shx
-│   ├── *proprietary*
+│   ├── proprietary
 │   │   └── AllWells_gis
 │   │       ├── Wells_All.dbf
 │   │       ├── Wells_All.prj
